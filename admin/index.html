@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Admin Console</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Operations Console</p>
+        <h1>Admin Control Room</h1>
+        <p>聚合用户、积分、订单、节点和审计日志，用最少依赖把首版运维后台跑起来。</p>
+      </div>
+      <div class="controls">
+        <label>API Base URL</label>
+        <input id="apiBase" value="http://localhost:8080" />
+        <label>Admin API Key</label>
+        <input id="adminKey" value="dev-admin-key" />
+        <button id="refreshAll">刷新全局数据</button>
+      </div>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="layout">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>用户</h2>
+          <button data-refresh="users" class="ghost">刷新</button>
+        </div>
+        <div id="users" class="list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>积分</h2>
+          <button data-refresh="points" class="ghost">刷新</button>
+        </div>
+        <div id="points" class="list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>订单</h2>
+          <button data-refresh="orders" class="ghost">刷新</button>
+        </div>
+        <div id="orders" class="list"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>节点</h2>
+          <button data-refresh="nodes" class="ghost">刷新</button>
+        </div>
+        <div id="nodes" class="list"></div>
+      </article>
+
+      <article class="panel wide">
+        <div class="panel-head">
+          <h2>审计日志</h2>
+          <button data-refresh="audit" class="ghost">刷新</button>
+        </div>
+        <div id="audit" class="list"></div>
+      </article>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

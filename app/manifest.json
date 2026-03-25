@@ -1,0 +1,34 @@
+{
+  "name": "VPN App",
+  "appid": "__UNI__VPN_PLATFORM",
+  "description": "Commercial VPN mobile app built with HBuilderX.",
+  "versionName": "0.1.0",
+  "versionCode": "100",
+  "transformPx": false,
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {
+      "Payment": {}
+    },
+    "distribute": {
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>"
+        ]
+      },
+      "sdkConfigs": {
+        "payment": {
+          "alipay": {}
+        }
+      }
+    }
+  }
+}

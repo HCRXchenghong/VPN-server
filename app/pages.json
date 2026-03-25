@@ -1,0 +1,21 @@
+{
+  "easycom": {
+    "autoscan": true
+  },
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "VPN App",
+        "navigationBarBackgroundColor": "#0e7a6d",
+        "navigationBarTextStyle": "white"
+      }
+    }
+  ],
+  "globalStyle": {
+    "backgroundColor": "#f4f6f1",
+    "navigationBarBackgroundColor": "#0e7a6d",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "VPN App"
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Storefront</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Commercial VPN Platform</p>
+        <h1>积分充值、权益兑换、设备接入，一页跑通。</h1>
+        <p class="lede">这个商城壳子直接对接 Go 控制面，覆盖注册、登录、邮箱验证、充值、兑换、设备绑定、节点选择和连接测试。</p>
+      </div>
+      <div class="config-card">
+        <label>API Base URL</label>
+        <input id="apiBase" value="http://localhost:8080" />
+        <button id="loadPublic">加载公共数据</button>
+        <p id="statusLine" class="muted">未登录</p>
+      </div>
+    </section>
+
+    <section class="grid two-up">
+      <article class="panel">
+        <h2>账号</h2>
+        <form id="registerForm" class="stack">
+          <input name="email" type="email" placeholder="邮箱" required />
+          <input name="password" type="password" placeholder="密码，至少 8 位" required />
+          <button type="submit">注册</button>
+        </form>
+        <form id="loginForm" class="stack compact">
+          <input name="email" type="email" placeholder="邮箱" required />
+          <input name="password" type="password" placeholder="密码" required />
+          <button type="submit">登录</button>
+        </form>
+        <div class="row">
+          <button id="verifyEmail">验证邮箱</button>
+          <button id="logoutBtn" class="ghost">退出登录</button>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>钱包</h2>
+        <div class="metric">
+          <span>当前积分</span>
+          <strong id="walletBalance">0</strong>
+        </div>
+        <form id="topupForm" class="stack compact">
+          <input name="points" type="number" min="10" step="10" value="100" />
+          <button type="submit">创建支付宝充值单</button>
+        </form>
+        <button id="simulateCallback" class="ghost">模拟支付宝支付回调</button>
+        <div id="walletLedger" class="list small"></div>
+      </article>
+    </section>
+
+    <section class="grid two-up">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>套餐兑换</h2>
+          <button id="reloadPlans" class="ghost">刷新</button>
+        </div>
+        <div id="plans" class="cards"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-head">
+          <h2>我的权益</h2>
+          <button id="reloadEntitlements" class="ghost">刷新</button>
+        </div>
+        <div id="entitlements" class="list"></div>
+      </article>
+    </section>
+
+    <section class="grid two-up">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>设备</h2>
+          <button id="reloadDevices" class="ghost">刷新</button>
+        </div>
+        <form id="deviceForm" class="stack compact">
+          <input name="name" placeholder="设备名，例如 iPhone 16" required />
+          <select name="platform">
+            <option value="ios">iOS</option>
+            <option value="android">Android</option>
+            <option value="windows">Windows</option>
+          </select>
+          <button type="submit">绑定设备</button>
+        </form>
+        <div id="devices" class="list"></div>
+      </article>
+
+      <article class="panel">
+        <h2>连接测试</h2>
+        <form id="connectForm" class="stack compact">
+          <select id="connectDevice" required></select>
+          <select id="connectEntitlement" required></select>
+          <select id="connectNode" required></select>
+          <select id="connectProtocol">
+            <option value="wireguard">WireGuard</option>
+            <option value="ikev2">IKEv2</option>
+          </select>
+          <button type="submit">建立连接</button>
+        </form>
+        <pre id="profileOutput" class="code"></pre>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>公告</h2>
+        <button id="reloadNotices" class="ghost">刷新</button>
+      </div>
+      <div id="notices" class="list"></div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

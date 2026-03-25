@@ -1,0 +1,17 @@
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.log
+.DS_Store
+Thumbs.db
+.env
+.env.*
+server/.env
+server/.env.*
+app/unpackage/
+app/dist/
+win/build/
+win/.dart_tool/
